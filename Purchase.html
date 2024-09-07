@@ -81,7 +81,7 @@
                 transform: scale(1.05);
                 cursor: pointer;
             }
-            .purchase-button {
+            .purchase-button, .purchase-button-crypto, .purchase-button-credit-card, .purchase-button-gift-card {
                 padding: 10px 20px;
                 font-size: 18px;
                 color: #fff;
@@ -92,10 +92,11 @@
                 text-align: center;
                 transition: 0.4s;
             }
-            .purchase-button:hover {
+            .purchase-button:hover, .purchase-button-crypto:hover, .purchase-button-credit-card:hover, .purchase-button-gift-card:hover {
                 background-color: #e500fa;
             }
-            .purchase-button-other, .purchase-button-resellers {
+            /* THIS IS FOR INVALID PAYMENT OPTIONS */
+            .purchase-button-crypto {
                 padding: 10px 20px;
                 font-size: 18px;
                 color: #fff;
@@ -106,7 +107,7 @@
                 text-align: center;
                 transition: 0.4s;
             }
-            .purchase-button-other:hover, .purchase-button-resellers:hover {
+            .purchase-button-crypto:hover {
                 background-color: #292929;
                 cursor: not-allowed;
             }
@@ -140,8 +141,9 @@
                     </div>
                     <div>
                     <button class="purchase-button" id="purchase-button">PayPal</button>
-                    <button class="purchase-button-resellers" id="purchase-button">Resellers</button>
-                    <button class="purchase-button-other" id="purchase-button">More Soon...</button>
+                    <button class="purchase-button-crypto" id="purchase-button-crypto">Crypto</button>
+                    <button class="purchase-button-credit-card" id="purchase-button-credit-card">Credit Card</button>
+                    <a href="https://discord.gg/omarcheats" target="_blank"><button class="purchase-button-gift-card" id="purchase-button-gift-card">Gift Card</button></a>
                     </div>
                 </div>
             </div>
@@ -168,6 +170,14 @@
     });
 
     document.getElementById('purchase-button').addEventListener('click', function() {
+        const permanentLink = 'https://omarcheats.com/products/omarplays-mod-menu?variant=43638033023148';
+        const days30Link = 'https://omarcheats.com/products/omarplays-mod-menu?variant=43638033055916';
+        const selectedLink = document.getElementById('type-permanent').checked ? permanentLink : days30Link;
+
+        window.open(selectedLink, '_blank');
+    });
+
+    document.getElementById('purchase-button-credit-card').addEventListener('click', function() {
         const permanentLink = 'https://omarcheats.com/products/omarplays-mod-menu?variant=43638033023148';
         const days30Link = 'https://omarcheats.com/products/omarplays-mod-menu?variant=43638033055916';
         const selectedLink = document.getElementById('type-permanent').checked ? permanentLink : days30Link;
